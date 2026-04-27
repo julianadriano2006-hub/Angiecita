@@ -6,6 +6,26 @@
 <title>Para ti, mi amorchito ❤️</title>
 
 <style>
+
+    .heart {
+        position: fixed;
+        bottom: -10px;
+        color: rgba(255, 0, 100, 0.6);
+        animation: float 5s linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-110vh);
+            opacity: 0;
+        }
+    }
+
     body {
         margin: 0;
         font-family: 'Segoe UI', sans-serif;
@@ -82,7 +102,6 @@
     <img src="foto1.jpg" class="foto">
     <img src="foto2.jpg" class="foto">
 
-
     <!-- Mensaje -->
     <p>
         ❤️❤️ Mi amorcito, puede que no siempre lo demuestre bien,
@@ -96,13 +115,31 @@
 	TE AMO MUCHO MI AMORCHITO ❤️❤️❤️
     </p>
 
-	<img src="foto3.jpg" class="foto">
+    <img src="foto3.jpg" class="foto">
     <img src="foto4.png" class="foto">
 
     <p id="contador"></p>
 </div>
 
 <script>
+
+function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.classList.add("heart");
+    corazon.innerHTML = "💖";
+
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.fontSize = (Math.random() * 20 + 10) + "px";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 5000);
+}
+
+setInterval(crearCorazon, 100);
+
 function mostrarMensaje() {
     document.getElementById("inicio").classList.add("hidden");
     document.getElementById("mensaje").classList.remove("hidden");
