@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti, mi amorchito ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        text-align: center;
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        max-width: 350px;
+        animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        background: #ff6b81;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .foto {
+        width: 100%;
+        border-radius: 15px;
+        margin: 10px 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Pantalla inicial -->
+<div class="container" id="inicio">
+    <h1>Para mi Angiecita bonita pechocha ❤️</h1>
+    <p>Tengo algo que decirte...</p>
+    <button onclick="mostrarMensaje()">Haz clic aquí</button>
+</div>
+
+<!-- Mensaje -->
+<div class="container hidden" id="mensaje">
+    <h1>4 meses contigo 💫</h1>
+
+    <!-- Fotos -->
+    <img src="foto1.jpg" class="foto">
+    <img src="foto2.jpg" class="foto">
+    <img src="foto3.jpg" class="foto">
+    <img src="foto4.png" class="foto">
+
+    <!-- Mensaje -->
+    <p>
+        ❤️❤️ Mi amorcito, puede que no siempre lo demuestre bien,
+	pero lo que siento por ti es real. ❤️❤️
+        <br><br>
+        ❤️❤️ Estos meses contigo significan mucho para mí, Angiecita,
+	incluso con lo bueno y lo difícil.❤️❤️
+        <br><br>
+        ❤️❤️❤️ Me gusta estar contigo, me gusta lo que tenemos…  
+        y quiero seguir construyendo algo bonito contigo ❤️
+	TE AMO MUCHO MI AMORCHITO ❤️❤️❤️
+    </p>
+
+    <p id="contador"></p>
+</div>
+
+<script>
+function mostrarMensaje() {
+    document.getElementById("inicio").classList.add("hidden");
+    document.getElementById("mensaje").classList.remove("hidden");
+}
+
+// CAMBIA ESTA FECHA
+const inicio = new Date("2025-12-28");
+
+function actualizarContador() {
+    const hoy = new Date();
+    const diff = hoy - inicio;
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    document.getElementById("contador").innerText =
+        "Llevamos " + dias + " días compartiendo momentos ❤️";
+}
+
+setInterval(actualizarContador, 1000);
+</script>
+
+</body>
+</html>
